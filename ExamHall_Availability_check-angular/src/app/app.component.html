@@ -1,0 +1,93 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<div class="container">
+  <div class="container" style="width:20rem">
+    <h3>Check Exam Hall</h3>
+    <input class="form-control" [(ngModel)]="name" placeholder="Enter the Name"/>
+    <input class="form-control" [(ngModel)]="roll_no" placeholder="Enter the roll number"/>
+    <select class="form-control"[(ngModel)]="selectedValue" >
+      <option *ngFor="let i of details;" [value]="i.dept">{{i.dept}}</option>
+    </select>
+    <div *ngIf="!name || !roll_no || !department">
+      Fill your details to check the Hall Details
+    </div>
+    <button class="btn btn-success text-center" (click)="generateCard()" >Submit</button>
+  </div>
+  <div [ngSwitch]="selectedValue">
+    <div *ngSwitchCase=" proCardStatus && 'ECE'" class="card container mt-4">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p card-text>
+          {{roll_no}}<br>
+          Hi {{name}} you are from "ECE" <br>
+            Hall No: 304<br>
+            Seat No:3
+        </p>
+      </div>
+    </div>
+    <div *ngSwitchCase=" proCardStatus && 'CSE'" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p card-text>
+          {{roll_no}}<br>
+          Hi {{name}} you are from "CSE" <br>
+            Hall No: 302<br>
+            Seat No:5
+        </p>
+      </div>
+    </div>
+    <div *ngSwitchCase=" proCardStatus && 'MECH'" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p card-text>
+          {{roll_no}}<br>
+          Hi {{name}} you are from "MECH" <br>
+            Hall No: 304<br>
+            Seat No:4<br>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!---import { Component } from "@angular/core";
+class details {
+  dept: string;
+}
+
+@Component({
+  selector: "my-app",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
+})
+export class AppComponent {
+  details: any[] = [{ dept: "ECE" }, { dept: "CSE" }, { dept: "MECH" }];
+  selectedValue: string = "select";
+
+  name: any;
+  roll_no: any;
+  department: any;
+
+  proCardStatus: Boolean = false;
+  generateCard(): any {
+    this.proCardStatus = !this.proCardStatus;
+  }
+}!--->
+
+<!--p {
+  font-family: Lato;
+}
+
+.container {
+  width: 60%;
+}
+h3 {
+  text-align: center;
+  color: blueviolet;
+}
+div,
+p,
+input {
+  margin-top: 4%;
+  margin-bottom: 5%;
+}
+-->

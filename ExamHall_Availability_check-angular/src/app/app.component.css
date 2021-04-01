@@ -1,0 +1,17 @@
+p {
+  font-family: Lato;
+}
+
+.container {
+  width: 60%;
+}
+h3 {
+  text-align: center;
+  color: blueviolet;
+}
+div,
+p,
+input {
+  margin-top: 4%;
+  margin-bottom: 5%;
+}
